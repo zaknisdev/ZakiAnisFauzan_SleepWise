@@ -108,6 +108,49 @@ namespace SleepWise
             }
         }
 
+        private void UpdateSaran()
+        {
+            // Validasi: Pastikan textbox nggak kosong
+            if (txtIdKategori.Text == "" || txtSaranBaru.Text == "")
+            {
+                MessageBox.Show("Isi dulu ID Kategori dan Saran barunya Bang!", "Peringatan");
+                return;
+            }
 
+            using (MySqlConnection conn = db.GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    
+                    string query = "UPDATE ms_kategori_tidur SET saran_harian = @saranBaru WHERE id_kategori = @idKategori";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@saranBaru", txtSaranBaru.Text);
+                    cmd.Parameters.AddWithValue("@idKategori", Convert.ToInt32(txtIdKategori.Text));
+
+                    int hasil = cmd.ExecuteNonQuery();
+
+                    if (hasil > 0)
+                    {
+                        MessageBox.Show("Saran harian berhasil di-update!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtIdKategori.Clear();
+                        txtSaranBaru.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("ID Kategori tidak ditemukan.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gagal update saran: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnUpdateSaran_Click(object sender, EventArgs e)
+        {
+            UpdateSaran();
+        }
     }
 }
