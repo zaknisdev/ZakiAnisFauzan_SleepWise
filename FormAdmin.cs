@@ -13,6 +13,7 @@ namespace SleepWise
 {
     public partial class FormAdmin : Form
     {
+        koneksiDB db = new koneksiDB();
         public FormAdmin()
         {
             InitializeComponent();
@@ -53,7 +54,7 @@ namespace SleepWise
 
         private void btnHapusPengguna_Click(object sender, EventArgs e)
         {
-
+            HapusPengguna();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -65,5 +66,48 @@ namespace SleepWise
             formLogin.Show();
             this.Hide();
         }
+
+        private void HapusPengguna()
+        {
+            if (dgvAdmin.SelectedRows.Count > 0)
+            {
+                int idUserTerpilih = Convert.ToInt32(dgvAdmin.SelectedRows[0].Cells["id_user"].Value);
+                string namaUser = dgvAdmin.SelectedRows[0].Cells["username"].Value.ToString();
+
+               
+                DialogResult dialogResult = MessageBox.Show($"Yakin mau menghapus user '{namaUser}'?\nSemua data yang berhubungan dengan user ikut dihapus!", "Konfirmasi Hapus", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    using (MySqlConnection conn = db.GetConnection())
+                    {
+                        try
+                        {
+                            conn.Open();
+                            
+                            string query = "DELETE FROM ms_user WHERE id_user = @id";
+                            MySqlCommand cmd = new MySqlCommand(query, conn);
+                            cmd.Parameters.AddWithValue("@id", idUserTerpilih);
+
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("pengguna berhasil dihapus!");
+
+                            
+                            LoadDataPengguna();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Gagal menghapus pengguna: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Data yang mau dihapus belum dipilih!");
+            }
+        }
+
+
     }
 }
