@@ -96,5 +96,12 @@ namespace SleepWise
                 }
             }
         }
+
+        private void btnSignup_Click(object sender, EventArgs e)
+        {
+            FormSignUp formDaftar = new FormSignUp();
+            formDaftar.Show();
+            this.Hide();
+        }
     }
 }

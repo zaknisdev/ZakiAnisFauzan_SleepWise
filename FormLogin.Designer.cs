@@ -70,6 +70,7 @@
             this.btnSignup.TabIndex = 3;
             this.btnSignup.Text = "Buat Akun";
             this.btnSignup.UseVisualStyleBackColor = false;
+            this.btnSignup.Click += new System.EventHandler(this.btnSignup_Click);
             // 
             // txtUsername
             // 
