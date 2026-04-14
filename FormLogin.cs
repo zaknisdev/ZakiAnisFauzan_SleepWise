@@ -35,5 +35,66 @@ namespace SleepWise
                 }
             }
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            
+            if (txtUsername.Text == "" || txtPassword.Text == "")
+            {
+                MessageBox.Show("Kok Kosong Ini!!");
+                return;
+            }
+
+            using (MySqlConnection conn = db.GetConnection())
+            {
+                try
+                {
+                    conn.Open(); 
+
+                    
+                    string query = "SELECT id_user, role, target_tidur_jam FROM ms_user WHERE username = @user AND password = @pass";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@user", txtUsername.Text);
+                    cmd.Parameters.AddWithValue("@pass", txtPassword.Text);
+
+                    
+                    MySqlDataReader dr = cmd.ExecuteReader();
+
+                    
+                    if (dr.Read())
+                    {
+                        UserSession.UserId = Convert.ToInt32(dr["id_user"]);
+                        UserSession.Username = txtUsername.Text;
+                        UserSession.Role = dr["role"].ToString();
+                        UserSession.TargetTidur = Convert.ToInt32(dr["target_tidur_jam"]);
+
+                        MessageBox.Show("Login Berhasil! Wel Co Me, " + UserSession.Username);
+
+                        
+                        if (UserSession.Role == "Admin")
+                        {
+                            FormAdmin formAdmin = new FormAdmin();
+                            formAdmin.Show();
+                        }
+                        else
+                        {
+                            FormSleepTracker formTracker = new FormSleepTracker();
+                            formTracker.Show();
+                        }
+
+                        this.Hide(); 
+                    }
+                    else
+                    {
+                        
+                        MessageBox.Show("Username atau Password salah satunya salah, mungkin!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Koneksi ke database ada trouble dikit: " + ex.Message);
+                }
+            }
+        }
     }
 }
