@@ -15,15 +15,8 @@ namespace SleepWise
         public MySqlConnection GetConnection()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
-            try
-            {
                 return connection;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Database gagal terknoneksi lee: " + ex.Message);
-                return null;
-            }
+           
             
         }
 
