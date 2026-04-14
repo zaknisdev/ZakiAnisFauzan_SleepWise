@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnConn = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnSignup = new System.Windows.Forms.Button();
@@ -36,18 +35,9 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SleepWise.Properties.Resources.SleepWise_Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(220, 52);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(329, 159);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // btnConn
             // 
@@ -58,6 +48,7 @@
             this.btnConn.TabIndex = 1;
             this.btnConn.Text = "Koneksi";
             this.btnConn.UseVisualStyleBackColor = false;
+            this.btnConn.Click += new System.EventHandler(this.btnConn_Click);
             // 
             // btnLogin
             // 
@@ -110,6 +101,16 @@
             this.label2.Size = new System.Drawing.Size(82, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "Password:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SleepWise.Properties.Resources.SleepWise_Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(220, 52);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(329, 159);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // FormLogin
             // 
