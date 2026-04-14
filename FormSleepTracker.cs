@@ -25,6 +25,27 @@ namespace SleepWise
             InitializeComponent();
         }
 
+        private void HitungDurasiHarian()
+        {
+            DateTime waktuTidur = dtpTidur.Value;
+            DateTime waktuBangun = dtpBangun.Value;
+
+            
+            if (waktuBangun < waktuTidur)
+            {
+                waktuBangun = waktuBangun.AddDays(1);
+            }
+
+            TimeSpan selisih = waktuBangun - waktuTidur;
+            durasi_menit = (int)selisih.TotalMinutes;
+
+            jamTidurStr = waktuTidur.ToString("HH:mm");
+            jamBangunStr = waktuBangun.ToString("HH:mm");
+
+            
+            tanggalTidur = dtpTanggal.Value.Date;
+        }
+
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
