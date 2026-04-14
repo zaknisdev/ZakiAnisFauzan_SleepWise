@@ -32,7 +32,7 @@
             this.dtpBangun = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSimpan = new System.Windows.Forms.Button();
             this.dtpTanggal = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -72,16 +72,16 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Waktu Bangun:";
             // 
-            // button1
+            // btnSimpan
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Location = new System.Drawing.Point(477, 62);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(194, 75);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Simpan";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSimpan.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSimpan.Location = new System.Drawing.Point(477, 62);
+            this.btnSimpan.Name = "btnSimpan";
+            this.btnSimpan.Size = new System.Drawing.Size(194, 75);
+            this.btnSimpan.TabIndex = 5;
+            this.btnSimpan.Text = "Simpan";
+            this.btnSimpan.UseVisualStyleBackColor = false;
+            this.btnSimpan.Click += new System.EventHandler(this.button1_Click);
             // 
             // dtpTanggal
             // 
@@ -106,7 +106,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpTanggal);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSimpan);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpBangun);
@@ -123,7 +123,7 @@
         private System.Windows.Forms.DateTimePicker dtpBangun;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSimpan;
         private System.Windows.Forms.DateTimePicker dtpTanggal;
         private System.Windows.Forms.Label label3;
     }
