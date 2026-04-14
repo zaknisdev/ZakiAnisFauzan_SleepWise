@@ -72,6 +72,52 @@ namespace SleepWise
                 }
             }
         }
+
+        private void TampilSaranHarian()
+        {
+            int jam = durasi_menit / 60;
+            int menit = durasi_menit % 60;
+            string saran = "";
+
+            
+            using (MySqlConnection conn = db.GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT saran_harian FROM ms_kategori_tidur WHERE @durasi BETWEEN min_menit AND max_menit";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@durasi", durasi_menit);
+
+                    MySqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.Read())
+                    {
+                        saran = dr["saran_harian"].ToString(); 
+                    }
+                    else
+                    {
+                        saran = GenerateSaranManual(jam);
+                    }
+                }
+                catch (Exception)
+                {
+                    saran = GenerateSaranManual(jam);
+                }
+            }
+
+            MessageBox.Show($"Data Berhasil Disimpan!\n\nTanggal: {tanggalTidur.ToString("dd/MM/yyyy")}\nDurasi tidur kamu: {jam} jam {menit} menit.\n\nSaran untukmu:\n{saran}");
+        }
+
+        
+        private string GenerateSaranManual(int jamTidur)
+        {
+            if (jamTidur < 6) return "Tidurmu kurang! Usahakan istirahat lebih awal besok.";
+            if (jamTidur >= 6 && jamTidur <= 8) return "Mantap! Waktu tidurmu ideal. Pertahankan jam tidurmu.";
+            return "Tidurmu kelamaan! kelamaan tidur malah bikin badan lemes seharian.";
+        }
+
+
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
