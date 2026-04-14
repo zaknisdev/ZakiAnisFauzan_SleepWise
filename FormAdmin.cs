@@ -45,5 +45,25 @@ namespace SleepWise
         {
             LoadDataPengguna();
         }
+
+        private void btnDataLog_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHapusPengguna_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            UserSession.ClearSession();
+
+            MessageBox.Show("Berhasil Logout!");
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
+            this.Hide();
+        }
     }
 }
