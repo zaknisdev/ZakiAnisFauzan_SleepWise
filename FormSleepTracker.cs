@@ -46,6 +46,32 @@ namespace SleepWise
             tanggalTidur = dtpTanggal.Value.Date;
         }
 
+        private void SimpanDataHarian()
+        {
+            using (MySqlConnection conn = db.GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    
+                    string query = "INSERT INTO tr_log_tidur (id_user, tanggal, jam_tidur, jam_bangun, durasi_menit) " +
+                                   "VALUES (@id, @tgl, @tidur, @bangun, @durasi)";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", UserSession.UserId);
+                    cmd.Parameters.AddWithValue("@tgl", tanggalTidur);
+                    cmd.Parameters.AddWithValue("@tidur", jamTidurStr);
+                    cmd.Parameters.AddWithValue("@bangun", jamBangunStr);
+                    cmd.Parameters.AddWithValue("@durasi", durasi_menit);
+
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("data gagal disimpan ke database: " + ex.Message);
+                }
+            }
+        }
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
