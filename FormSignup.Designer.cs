@@ -1,6 +1,6 @@
 ﻿namespace SleepWise
 {
-    partial class FormSignup
+    partial class FormSignUp
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtNama = new System.Windows.Forms.TextBox();
+            this.txtNamaLengkap = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSignup = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnKembali = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SleepWise.Properties.Resources.SleepWise_Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(258, 389);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // txtUsername
             // 
@@ -63,12 +54,12 @@
             this.txtPassword.Size = new System.Drawing.Size(133, 26);
             this.txtPassword.TabIndex = 2;
             // 
-            // txtNama
+            // txtNamaLengkap
             // 
-            this.txtNama.Location = new System.Drawing.Point(434, 221);
-            this.txtNama.Name = "txtNama";
-            this.txtNama.Size = new System.Drawing.Size(133, 26);
-            this.txtNama.TabIndex = 3;
+            this.txtNamaLengkap.Location = new System.Drawing.Point(434, 221);
+            this.txtNamaLengkap.Name = "txtNamaLengkap";
+            this.txtNamaLengkap.Size = new System.Drawing.Size(133, 26);
+            this.txtNamaLengkap.TabIndex = 3;
             // 
             // label1
             // 
@@ -106,23 +97,46 @@
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(133, 53);
             this.btnSignup.TabIndex = 7;
-            this.btnSignup.Text = "Buat Akun";
+            this.btnSignup.Text = "Simpan";
             this.btnSignup.UseVisualStyleBackColor = false;
+            this.btnSignup.Click += new System.EventHandler(this.btnSignup_Click);
             // 
-            // FormSignup
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SleepWise.Properties.Resources.SleepWise_Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(258, 389);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnKembali
+            // 
+            this.btnKembali.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnKembali.Location = new System.Drawing.Point(655, 385);
+            this.btnKembali.Name = "btnKembali";
+            this.btnKembali.Size = new System.Drawing.Size(133, 53);
+            this.btnKembali.TabIndex = 8;
+            this.btnKembali.Text = "Kembali";
+            this.btnKembali.UseVisualStyleBackColor = false;
+            this.btnKembali.Click += new System.EventHandler(this.btnKembali_Click);
+            // 
+            // FormSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnKembali);
             this.Controls.Add(this.btnSignup);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtNama);
+            this.Controls.Add(this.txtNamaLengkap);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "FormSignup";
+            this.Name = "FormSignUp";
             this.Text = "FormSignup";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -135,10 +149,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtNama;
+        private System.Windows.Forms.TextBox txtNamaLengkap;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnSignup;
+        private System.Windows.Forms.Button btnKembali;
     }
 }

@@ -80,6 +80,13 @@ namespace SleepWise
                 }
             }
         }
+
+        private void btnKembali_Click(object sender, EventArgs e)
+        {
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
+            this.Hide();
+        }
     }
     
 }
