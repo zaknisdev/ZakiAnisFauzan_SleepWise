@@ -129,5 +129,31 @@ namespace SleepWise
             SimpanDataHarian();
             TampilSaranHarian();
         }
+
+        private void TampilkanDataTabel()
+        {
+            using (MySqlConnection conn = db.GetConnection())
+            {
+                try
+                {
+                    string query = "SELECT tanggal, jam_tidur, jam_bangun, durasi_menit FROM tr_log_tidur WHERE id_user = @id ORDER BY tanggal DESC";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", UserSession.UserId);
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dgvRiwayat.DataSource = dt;
+                }
+                catch (Exception)
+                {
+                    
+                }
+            }
+        }
+        private void FormSleepTracker_Load(object sender, EventArgs e)
+        {
+            TampilkanDataTabel(); 
+        }
     }
 }

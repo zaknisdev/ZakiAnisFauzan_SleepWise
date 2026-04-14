@@ -35,6 +35,8 @@
             this.btnSimpan = new System.Windows.Forms.Button();
             this.dtpTanggal = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
+            this.dgvRiwayat = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRiwayat)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpTidur
@@ -99,11 +101,22 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Tanggal:";
             // 
+            // dgvRiwayat
+            // 
+            this.dgvRiwayat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRiwayat.Location = new System.Drawing.Point(13, 229);
+            this.dgvRiwayat.Name = "dgvRiwayat";
+            this.dgvRiwayat.RowHeadersWidth = 62;
+            this.dgvRiwayat.RowTemplate.Height = 28;
+            this.dgvRiwayat.Size = new System.Drawing.Size(760, 196);
+            this.dgvRiwayat.TabIndex = 8;
+            // 
             // FormSleepTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvRiwayat);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpTanggal);
             this.Controls.Add(this.btnSimpan);
@@ -113,6 +126,8 @@
             this.Controls.Add(this.dtpTidur);
             this.Name = "FormSleepTracker";
             this.Text = "FormSleepTracker";
+            this.Load += new System.EventHandler(this.FormSleepTracker_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRiwayat)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,5 +141,6 @@
         private System.Windows.Forms.Button btnSimpan;
         private System.Windows.Forms.DateTimePicker dtpTanggal;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dgvRiwayat;
     }
 }
