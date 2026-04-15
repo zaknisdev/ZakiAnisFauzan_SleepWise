@@ -41,19 +41,23 @@
             // 
             // dtpTidur
             // 
-            this.dtpTidur.CustomFormat = "HH : mm";
+            this.dtpTidur.CustomFormat = "HH:mm";
+            this.dtpTidur.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTidur.Location = new System.Drawing.Point(134, 100);
             this.dtpTidur.Name = "dtpTidur";
-            this.dtpTidur.Size = new System.Drawing.Size(200, 26);
+            this.dtpTidur.ShowUpDown = true;
+            this.dtpTidur.Size = new System.Drawing.Size(74, 26);
             this.dtpTidur.TabIndex = 1;
             this.dtpTidur.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // dtpBangun
             // 
-            this.dtpBangun.CustomFormat = "HH : mm";
+            this.dtpBangun.CustomFormat = "HH:mm";
+            this.dtpBangun.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpBangun.Location = new System.Drawing.Point(134, 147);
             this.dtpBangun.Name = "dtpBangun";
-            this.dtpBangun.Size = new System.Drawing.Size(200, 26);
+            this.dtpBangun.ShowUpDown = true;
+            this.dtpBangun.Size = new System.Drawing.Size(74, 26);
             this.dtpBangun.TabIndex = 2;
             // 
             // label1
@@ -87,9 +91,11 @@
             // 
             // dtpTanggal
             // 
+            this.dtpTanggal.CustomFormat = "";
+            this.dtpTanggal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpTanggal.Location = new System.Drawing.Point(134, 47);
             this.dtpTanggal.Name = "dtpTanggal";
-            this.dtpTanggal.Size = new System.Drawing.Size(200, 26);
+            this.dtpTanggal.Size = new System.Drawing.Size(119, 26);
             this.dtpTanggal.TabIndex = 6;
             // 
             // label3
